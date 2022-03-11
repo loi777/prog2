@@ -3,17 +3,18 @@
 void rotacao_simples(Imagem_t *orig, Imagem_t *novo){
 
     strcpy(novo->tipo, orig->tipo);
-    novo->altura = orig->altura;
-    novo->coluna = orig->coluna;
+    novo->altura = orig->coluna;
+    novo->coluna = orig->altura;
     novo->max = orig->max;
 
     alocacao_matriz(novo);
 
-    int pixel;
+    unsigned char pixel;
+
     int aux_c = 0;
-    for (int i = 0; i < orig->altura; i++){
+    for (int i = 0; i < orig->coluna; i++){
         int aux_l = orig->altura-1;
-        for (int j = 0; j < orig->coluna; j++){
+        for (int j = 0; j < orig->altura; j++){
             pixel = orig->img[aux_l][aux_c];
             novo->img[i][j] = pixel;
             --aux_l; 

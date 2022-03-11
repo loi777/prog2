@@ -1,28 +1,48 @@
-CFLAGS = -Wall -lm -g
-MAIN = pgmlbp pgmmedia pgmmediana pgmlimiar pgmnega pgmrotacao
-all: %: $(MAIN)
+CFLAGS = -Wall -g
+LIBS = -lm
+
+all: pgmlbp pgmlimiar pgmmedia pgmmediana pgmnega pgmrotacao 
 
 pgmlbp: pgmlbp.o imagem.o
-    gcc $^ -o $@ $(CFLAGS)
+	gcc pgmlbp.o imagem.o -o pgmlbp $(LIBS)
+
 pgmmediana: pgmmediana.o imagem.o
-    gcc $^ -o $@ $(CFLAGS)
+	gcc pgmmediana.o imagem.o -o pgmmediana $(LIBS)
+
 pgmmedia: pgmmedia.o imagem.o
-    gcc $^ -o $@ $(CFLAGS)
+	gcc pgmmedia.o imagem.o -o pgmmedia $(LIBS)
+
 pgmlimiar: pgmlimiar.o imagem.o
-    gcc $^ -o $@ $(CFLAGS)
+	gcc pgmlimiar.o imagem.o -o pgmlimiar $(LIBS)
+
 pgmrotacao: pgmrotacao.o imagem.o
-    gcc $^ -o $@ $(CFLAGS)
-pgmnaosei: pgmnaosei.o imagem.o
-    gcc $^ -o $@ $(CFLAGS)
+	gcc pgmrotacao.o imagem.o -o pgmrotacao $(LIBS)
+
 pgmnega: pgmnega.o imagem.o
-    gcc $^ -o $@ $(CFLAGS)
-    
-    
+	gcc pgmnega.o imagem.o -o pgmnega $(LIBS)
+        
 imagem.o: imagem.c imagem.h
-    gcc -c imagem.c $(CFLAGS)
-%.o: %.c imagem.c
-    gcc -c $^ $(CFLAGS)
+	gcc -c imagem.c $(CFLAGS)
+
+pgmmediana.o : pgmmediana.c 
+	gcc -c pgmmediana.c  $(CFLAGS)
+
+pgmlbp.o : pgmlbp.c 
+	gcc -c pgmlbp.c  $(CFLAGS)
+
+pgmmedia.o : pgmmedia.c 
+	gcc -c pgmmedia.c  $(CFLAGS)
+
+pgmlimiar.o : pgmlimiar.c 
+	gcc -c pgmlimiar.c  $(CFLAGS)
+
+pgmrotacao.o : pgmrotacao.c 
+	gcc -c pgmrotacao.c  $(CFLAGS)
+
+pgmnega.o : pgmnega.c 
+	gcc -c pgmnega.c  $(CFLAGS)
+
 clean:
-    rm -rf ./*.o 
+	rm -rf ./*.o 
 purge: clean
-    rm -rf $(MAIN)
+	rm -rf $(MAIN)

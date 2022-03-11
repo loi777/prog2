@@ -9,7 +9,7 @@
 
 typedef struct Imagem_t {
 
-    int **img;
+    unsigned char **img;
     char tipo[2];
     int altura;
     int coluna;
@@ -17,15 +17,6 @@ typedef struct Imagem_t {
 
 }Imagem_t;
 
-typedef struct P5_t {
-
-    unsigned char **img;
-    char tipo[2];
-    int altura;
-    int coluna;
-    int max;  
-
-}P5_t;
 
 void alocacao_matriz(Imagem_t *orig);
 void ler_imagem(Imagem_t *orig, FILE *arq);

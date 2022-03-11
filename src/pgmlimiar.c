@@ -10,6 +10,7 @@ void limiar(Imagem_t *orig, Imagem_t *novo, double n){
     alocacao_matriz(novo);
 
     int limiar = n*novo->max;
+    
     for (int i = 0; i < orig->altura; i++){
         for (int j = 0; j < orig->coluna; j++){
             if (orig->img[i][j] >= limiar)

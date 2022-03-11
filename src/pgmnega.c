@@ -2,7 +2,7 @@
 
 void negativo(Imagem_t *orig, Imagem_t *neg){
 
-    int pixel;
+    unsigned char pixel;
     
     strcpy(neg->tipo, orig->tipo);
     neg->altura = orig->altura;
