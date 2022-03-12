@@ -58,3 +58,4 @@ int main(int argc, char **argv){
     fclose (arqs);
     
 }
+// casede a rotação complexa mano bah mac hguqeuo minha mçao
